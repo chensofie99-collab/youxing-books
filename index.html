@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李守中 · 著作三部 · 数字文库</title>
+<meta name="description" content="李守中（1933–2026），历史学者，高级工程师，宾州州立大学访问学者。三部著作数字版：《长城往事》《中国二百年》《渔舟唱晚》，简体中文在线阅读。单本 $5.9，全集 $9.9。">
+<!--
+  ╔═══════════════════════════════════════════════╗
+  ║  图片文件 — 与本 HTML 放在同一目录：           ║
+  ║  lishouzhong.jpg             → 作者照片        ║
+  ║  stories_of_the_Great_Wall.png → 长城往事封面  ║
+  ║  Two_Centuries_of_China.jpg  → 中国二百年封面  ║
+  ║  Colors_of_the_Twilight_.jpg → 渔舟唱晚封面   ║
+  ╚═══════════════════════════════════════════════╝
+  购书按钮链接占位符：
+    /changcheng/buy  → 《长城往事》购买页
+    /china200/buy    → 《中国二百年》购买页
+    /yuzhou/buy      → 《渔舟唱晚》购买页
+    /all/buy         → 全集购买页
+  请替换为实际支付链接（Stripe / 微信 / 支付宝）
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parch:  #fdf9f2;
+  --parch2: #f0e8d5;
+  --parch3: #dfd0ad;
+  --ink:    #1a1208;
+  --ink2:   #3d2f1a;
+  --ink3:   #7a6650;
+  --cr:     #6b0d0d;
+  --cr2:    #8b1a1a;
+  --gold:   #b8892a;
+  --gold2:  #d4a84b;
+  --gold3:  #8a6520;
+  --sage:   #2d5e3a;
+  --dark:   #0c0907;
+  --dark2:  #151009;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { background: var(--parch); color: var(--ink); font-family: 'Noto Serif SC', serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(253,249,242,.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--parch3);
+  padding: 0 5vw; height: 54px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { text-decoration: none; display: flex; flex-direction: column; line-height: 1.25; }
+.nav-brand-m { font-size: 15px; font-weight: 700; color: var(--cr); letter-spacing: .08em; }
+.nav-brand-s { font-family: 'Noto Sans SC', sans-serif; font-size: 9px; color: var(--gold3); letter-spacing: .2em; }
+.nav-links { display: flex; gap: 2px; }
+.nl { font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--ink3); text-decoration: none; padding: 5px 11px; border-radius: 2px; transition: color .2s; letter-spacing: .04em; }
+.nl:hover { color: var(--cr); }
+.nl-cta { background: var(--cr); color: #fdf9f2 !important; }
+.nl-cta:hover { background: var(--cr2) !important; }
+@media (max-width: 640px) { .nl:not(.nl-cta):not(.nl-k) { display: none; } }
+
+/* HERO */
+.hero { display: grid; grid-template-columns: 44% 1fr; min-height: calc(100svh - 54px); }
+@media (max-width: 780px) { .hero { grid-template-columns: 1fr; min-height: auto; } }
+
+.hero-photo { position: relative; overflow: hidden; min-height: 420px; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; filter: sepia(20%) brightness(.82) contrast(1.05); }
+.hero-fade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, transparent 50%, var(--parch) 100%), linear-gradient(to top, rgba(12,9,7,.65) 0%, transparent 45%);
+}
+@media (max-width: 780px) { .hero-fade { background: linear-gradient(to bottom, transparent 42%, var(--parch) 90%); } }
+
+.hero-text { padding: 64px 5vw 64px 36px; display: flex; flex-direction: column; justify-content: center; background: var(--parch); }
+@media (max-width: 780px) { .hero-text { padding: 0 5vw 56px; margin-top: -90px; position: relative; z-index: 1; } }
+
+.hero-dates {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13px; letter-spacing: .22em; color: var(--ink3);
+  margin-bottom: 6px; display: flex; align-items: center; gap: 10px;
+}
+.hero-dates::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.hero-name { font-size: clamp(52px, 9vw, 100px); font-weight: 900; color: var(--cr); line-height: .95; letter-spacing: -.01em; margin-bottom: 10px; }
+.hero-title { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; letter-spacing: .22em; color: var(--gold); text-transform: uppercase; margin-bottom: 26px; }
+.hero-rule { width: 36px; height: 2px; background: var(--gold); margin-bottom: 22px; }
+.hero-creds { margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
+.hcred { font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--ink2); display: flex; align-items: flex-start; gap: 10px; line-height: 1.65; }
+.hc-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 6px; }
+.hero-memorial {
+  margin-bottom: 28px; padding: 14px 18px;
+  background: rgba(107,13,13,.05); border-left: 2px solid var(--cr);
+  font-size: 13px; line-height: 2; color: var(--ink2); font-weight: 300;
+}
+.hero-memorial strong { color: var(--cr); font-weight: 500; }
+.hero-btns { display: flex; gap: 11px; flex-wrap: wrap; }
+.btn-p { display: inline-block; text-decoration: none; background: var(--cr); color: #fdf9f2; padding: 11px 26px; border-radius: 2px; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: .1em; transition: background .2s; }
+.btn-p:hover { background: var(--cr2); }
+.btn-g { display: inline-block; text-decoration: none; border: 1px solid var(--parch3); color: var(--ink3); padding: 11px 26px; border-radius: 2px; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: .1em; transition: all .2s; }
+.btn-g:hover { border-color: var(--gold); color: var(--gold3); }
+
+/* DARK STRIP */
+.strip { background: var(--dark); padding: 18px 5vw; display: flex; gap: 12px; align-items: center; overflow-x: auto; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+.strip-label { font-family: 'Noto Sans SC', sans-serif; font-size: 10px; letter-spacing: .2em; color: rgba(253,249,242,.25); white-space: nowrap; padding-right: 14px; border-right: 1px solid rgba(253,249,242,.08); flex-shrink: 0; }
+.strip-item { flex-shrink: 0; text-decoration: none; display: flex; align-items: center; gap: 9px; padding: 6px 14px; border: 1px solid rgba(253,249,242,.08); border-radius: 2px; transition: border-color .2s; }
+.strip-item:hover { border-color: rgba(184,137,42,.5); }
+.strip-num { font-family: 'EB Garamond', serif; font-style: italic; font-size: 13px; color: rgba(184,137,42,.4); }
+.strip-title { font-size: 13px; color: rgba(253,249,242,.75); letter-spacing: .06em; }
+
+/* WORKS */
+.works { background: var(--dark2); }
+.works-header { padding: 80px 5vw 60px; text-align: center; }
+.sec-eye { font-family: 'Noto Sans SC', sans-serif; font-size: 10px; letter-spacing: .24em; color: var(--gold); text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.sec-eye::before, .sec-eye::after { content: ''; width: 18px; height: 1px; background: var(--gold); }
+.works-h { font-size: clamp(26px, 5vw, 46px); font-weight: 600; color: var(--parch); letter-spacing: .04em; }
+.works-sub { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(14px, 2vw, 18px); color: rgba(253,249,242,.3); letter-spacing: .08em; margin-top: 8px; }
+
+/* Book bands */
+.bband { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.04); min-height: 460px; }
+@media (max-width: 780px) { .bband { grid-template-columns: 1fr; } }
+.bband.rv-lay .bcover { order: 2; }
+.bband.rv-lay .binfo  { order: 1; }
+@media (max-width: 780px) { .bband.rv-lay .bcover, .bband.rv-lay .binfo { order: unset; } }
+
+.bcover { position: relative; overflow: hidden; min-height: 320px; }
+.bcover img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .7s ease; }
+.bband:hover .bcover img { transform: scale(1.04); }
+.bcfade { position: absolute; inset: 0; background: linear-gradient(to right, transparent 38%, var(--dark2) 92%); pointer-events: none; }
+.bband.rv-lay .bcfade { background: linear-gradient(to left, transparent 38%, var(--dark2) 92%); }
+@media (max-width: 780px) { .bcfade { background: linear-gradient(to bottom, transparent 40%, var(--dark2) 90%) !important; } }
+
+.binfo { padding: 52px 5vw 52px 44px; display: flex; flex-direction: column; justify-content: center; }
+.bband.rv-lay .binfo { padding: 52px 44px 52px 5vw; }
+@media (max-width: 780px) { .binfo, .bband.rv-lay .binfo { padding: 28px 5vw 48px !important; } }
+
+.b-n { font-family: 'EB Garamond', serif; font-size: 72px; font-weight: 400; color: rgba(184,137,42,.1); line-height: 1; margin-bottom: -8px; }
+.b-tag { font-family: 'Noto Sans SC', sans-serif; font-size: 10px; letter-spacing: .16em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+.b-title { font-size: clamp(30px, 5vw, 52px); font-weight: 700; color: var(--parch); letter-spacing: .06em; line-height: 1.15; margin-bottom: 10px; }
+.b-en { font-family: 'EB Garamond', serif; font-style: italic; font-size: 14px; color: rgba(253,249,242,.3); letter-spacing: .1em; margin-bottom: 18px; }
+.b-desc { font-size: 13.5px; line-height: 2.05; font-weight: 300; color: rgba(253,249,242,.55); max-width: 400px; margin-bottom: 20px; }
+.b-hooks { display: flex; flex-direction: column; gap: 7px; margin-bottom: 24px; }
+.b-hook { font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: rgba(253,249,242,.4); display: flex; align-items: flex-start; gap: 10px; }
+.b-hook::before { content: '—'; color: var(--gold); flex-shrink: 0; opacity: .6; }
+.b-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+.b-price { font-family: 'EB Garamond', serif; font-size: 32px; font-weight: 500; color: var(--gold2); letter-spacing: .02em; }
+.b-price-unit { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; color: rgba(253,249,242,.3); letter-spacing: .1em; }
+.b-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.b-btn-buy { display: inline-block; text-decoration: none; background: var(--cr); color: #fdf9f2; padding: 10px 24px; border-radius: 2px; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: .1em; transition: background .2s; }
+.b-btn-buy:hover { background: var(--cr2); }
+.b-btn-read { display: inline-block; text-decoration: none; border: 1px solid rgba(184,137,42,.25); color: rgba(184,137,42,.65); padding: 10px 22px; border-radius: 2px; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: .1em; transition: all .2s; }
+.b-btn-read:hover { border-color: var(--gold); color: var(--gold2); }
+
+/* PRICING SECTION */
+.pricing { background: var(--dark); padding: 72px 5vw; }
+.pricing-inner { max-width: 960px; margin: 0 auto; }
+.pricing-cards { display: grid; grid-template-columns: 1fr 1fr 1fr 1.15fr; gap: 16px; }
+@media (max-width: 900px) { .pricing-cards { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .pricing-cards { grid-template-columns: 1fr; } }
+
+.pc {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 3px; padding: 28px 24px;
+  display: flex; flex-direction: column;
+  transition: border-color .25s;
+}
+.pc:hover { border-color: rgba(184,137,42,.4); }
+.pc.featured {
+  background: rgba(107,13,13,.25); border-color: rgba(107,13,13,.5);
+  position: relative;
+}
+.pc-badge {
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--cr); color: #fdf9f2;
+  font-family: 'Noto Sans SC', sans-serif; font-size: 10px; letter-spacing: .12em;
+  padding: 3px 14px; border-radius: 2px; white-space: nowrap;
+}
+.pc-label { font-family: 'Noto Sans SC', sans-serif; font-size: 10px; letter-spacing: .16em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+.pc-title { font-size: 18px; font-weight: 600; color: var(--parch); letter-spacing: .05em; margin-bottom: 18px; line-height: 1.4; }
+.pc-price { font-family: 'EB Garamond', serif; font-size: 44px; font-weight: 500; color: var(--gold2); line-height: 1; margin-bottom: 4px; }
+.pc-price-note { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; color: rgba(253,249,242,.25); margin-bottom: 20px; }
+.pc-saving { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; color: rgba(140,200,140,.6); margin-bottom: 20px; }
+.pc-features { display: flex; flex-direction: column; gap: 7px; margin-bottom: 24px; flex: 1; }
+.pc-feat { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; color: rgba(253,249,242,.45); display: flex; align-items: flex-start; gap: 8px; line-height: 1.7; }
+.pc-feat::before { content: '✓'; color: var(--gold); flex-shrink: 0; font-size: 10px; margin-top: 2px; }
+.pc-btn {
+  display: block; text-align: center; text-decoration: none;
+  border: 1px solid rgba(253,249,242,.15); color: rgba(253,249,242,.75);
+  padding: 10px; border-radius: 2px;
+  font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: .1em;
+  transition: all .2s;
+}
+.pc-btn:hover { border-color: var(--gold2); color: var(--gold2); }
+.pc.featured .pc-btn { background: var(--cr); border-color: var(--cr); color: #fdf9f2; }
+.pc.featured .pc-btn:hover { background: var(--cr2); border-color: var(--cr2); }
+
+/* READING MODEL */
+.reading { background: var(--parch2); padding: 72px 5vw; }
+.reading-inner { max-width: 880px; margin: 0 auto; }
+.reading-inner h2 { font-size: clamp(22px, 4vw, 34px); font-weight: 600; color: var(--ink); letter-spacing: .04em; margin-bottom: 8px; }
+.reading-sub { font-family: 'EB Garamond', serif; font-style: italic; font-size: 16px; color: var(--ink3); margin-bottom: 40px; }
+.rcards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+@media (max-width: 620px) { .rcards { grid-template-columns: 1fr; } }
+.rcard { background: var(--parch); border: 1px solid var(--parch3); border-radius: 3px; padding: 26px 22px; }
+.rcard-icon { font-size: 24px; margin-bottom: 12px; }
+.rcard h3 { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: .04em; margin-bottom: 8px; }
+.rcard p { font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--ink3); line-height: 1.95; font-weight: 300; }
+
+/* AUTHOR MEMORIAL */
+.author-sec { padding: 80px 5vw; background: var(--parch); }
+.author-inner { max-width: 900px; margin: 0 auto; }
+.author-grid { display: grid; grid-template-columns: 260px 1fr; gap: 52px; }
+@media (max-width: 760px) { .author-grid { grid-template-columns: 1fr; gap: 28px; } }
+.author-photo-w { position: relative; }
+.author-photo-w img { width: 100%; aspect-ratio: .82; object-fit: cover; object-position: center 12%; border-radius: 2px; border: 1px solid var(--parch3); display: block; }
+.author-photo-caption { background: var(--dark2); padding: 9px 14px; font-family: 'Noto Sans SC', sans-serif; font-size: 10px; color: rgba(253,249,242,.5); letter-spacing: .14em; text-align: center; }
+.author-name { font-size: clamp(36px, 6vw, 56px); font-weight: 900; color: var(--cr); letter-spacing: .06em; margin-bottom: 4px; }
+.author-years { font-family: 'EB Garamond', serif; font-style: italic; font-size: 17px; color: var(--ink3); letter-spacing: .12em; margin-bottom: 24px; }
+.author-body { font-size: 14px; line-height: 2.1; color: var(--ink2); font-weight: 300; }
+.author-body p { margin-bottom: 16px; }
+.author-body strong { color: var(--ink); font-weight: 600; }
+.author-pull { margin: 22px 0; padding: 16px 20px; border-left: 2px solid var(--cr); background: rgba(107,13,13,.03); }
+.author-pull p { font-family: 'EB Garamond', serif; font-style: italic; font-size: 16px; color: var(--ink2); line-height: 1.9; margin: 0; }
+.author-legacy { margin-top: 24px; padding: 18px 20px; background: var(--parch2); border: 1px solid var(--parch3); border-radius: 2px; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--ink3); line-height: 2; }
+.author-legacy strong { color: var(--ink2); font-weight: 500; }
+
+/* COLOPHON */
+.colophon { background: var(--dark2); padding: 64px 5vw; text-align: center; border-top: 1px solid rgba(184,137,42,.15); }
+.colophon h2 { font-size: clamp(18px, 4vw, 28px); font-weight: 600; color: rgba(253,249,242,.85); letter-spacing: .06em; margin-bottom: 12px; }
+.colophon p { font-family: 'Noto Sans SC', sans-serif; font-size: 13px; color: rgba(253,249,242,.4); line-height: 1.95; max-width: 520px; margin: 0 auto 28px; font-weight: 300; }
+.colophon-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.col-btn { display: inline-block; text-decoration: none; border: 1px solid rgba(184,137,42,.25); color: rgba(184,137,42,.65); padding: 11px 24px; border-radius: 2px; font-family: 'Noto Sans SC', sans-serif; font-size: 12px; letter-spacing: .1em; transition: all .2s; }
+.col-btn:hover { border-color: var(--gold); color: var(--gold2); }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+.ft-brand { font-size: 13px; font-weight: 600; color: rgba(253,249,242,.6); letter-spacing: .08em; }
+.ft-brand span { color: var(--gold2); }
+.ft-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.ft-links a { font-family: 'Noto Sans SC', sans-serif; font-size: 11px; color: rgba(245,237,216,.2); text-decoration: none; letter-spacing: .06em; transition: color .2s; }
+.ft-links a:hover { color: var(--gold2); }
+.ft-copy { width: 100%; font-family: 'Noto Sans SC', sans-serif; font-size: 10px; color: rgba(245,237,216,.1); letter-spacing: .06em; }
+
+/* REVEAL */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .8s, transform .8s; }
+.rv.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/">
+    <span class="nav-brand-m">李守中 著作</span>
+    <span class="nav-brand-s">数字文库 · 简体中文 · 在线阅读</span>
+  </a>
+  <div class="nav-links">
+    <a class="nl nl-k" href="#works">三部著作</a>
+    <a class="nl" href="#pricing">购书定价</a>
+    <a class="nl" href="#author">作者简介</a>
+    <a class="nl" href="https://youxingshijia.com">有行世家</a>
+    <a class="nl" href="/yuzhou/" style="border:1px solid var(--parch3)">返回阅读</a>
+    <a class="nl nl-cta" href="#pricing">立即购读</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="lishouzhong.webp" alt="李守中先生（1933–2026）" loading="eager">
+    <div class="hero-fade"></div>
+  </div>
+  <div class="hero-text">
+    <div class="hero-dates">1933 — 2026</div>
+    <div class="hero-name">李守中</div>
+    <div class="hero-title">历史学者 · 高级工程师 · 宾州州立大学访问学者</div>
+    <div class="hero-rule"></div>
+    <div class="hero-creds">
+      <div class="hcred"><div class="hc-dot"></div><span>重庆大学采矿工程 · 云南省煤炭厅总工程师</span></div>
+      <div class="hcred"><div class="hc-dot"></div><span>东方色彩大师李有行之子</span></div>
+      <div class="hcred"><div class="hc-dot"></div><span>抗日航空英烈李有幹之侄</span></div>
+    </div>
+    <div class="hero-memorial">
+      李守中先生于2026年辞世。他留下<strong>三部著作</strong>，是他用一生的工程思维换来的历史判断，现以<strong>数字文库</strong>形式永久留存，供后人在线阅读。
+    </div>
+    <div class="hero-btns">
+      <a class="btn-p" href="#pricing">购读三部著作</a>
+      <a class="btn-g" href="#author">了解作者</a>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-label">著作三部 · 简体中文 · 在线阅读</div>
+  <a class="strip-item" href="#book-1"><span class="strip-num">I</span><span class="strip-title">长城往事</span></a>
+  <a class="strip-item" href="#book-2"><span class="strip-num">II</span><span class="strip-title">中国二百年</span></a>
+  <a class="strip-item" href="#book-3"><span class="strip-num">III</span><span class="strip-title">渔舟唱晚</span></a>
+</div>
+
+<!-- WORKS -->
+<section class="works" id="works">
+
+  <div class="works-header rv">
+    <div class="sec-eye">著作三部</div>
+    <div class="works-h">工程师的史观</div>
+    <div class="works-sub">An Engineer's Reading of Chinese History</div>
+  </div>
+
+  <!-- 长城往事 cover LEFT -->
+  <div class="bband" id="book-1">
+    <div class="bcover">
+      <img src="stories_of_the_Great_Wall.webp" alt="《长城往事》封面">
+      <div class="bcfade"></div>
+    </div>
+    <div class="binfo rv">
+      <div class="b-n">I</div>
+      <div class="b-tag">长城历史 · 新史观</div>
+      <div class="b-title">长城往事</div>
+      <div class="b-en">Stories of the Great Wall</div>
+      <p class="b-desc">43个主题，重新审视长城两千年。马可波罗为何从未提及长城？秦始皇并非第一位修长城者。历史迷雾背后，是工程师才能看见的结构与逻辑。柏杨亲笔作序推荐。</p>
+      <div class="b-hooks">
+        <div class="b-hook">43个反直觉历史发现，颠覆主流叙事</div>
+        <div class="b-hook">柏杨誉为"长城史专题研究的珍贵之作"</div>
+        <div class="b-hook">简体中文数字版 · 在线阅读</div>
+      </div>
+      <div class="b-price-row">
+        <div class="b-price">$5.9</div>
+        <div class="b-price-unit">单本 / 终身阅读权</div>
+      </div>
+      <div class="b-btns">
+        <a class="b-btn-buy" href="/changcheng/buy">立即购读</a>
+        <a class="b-btn-read" href="/changcheng/">详细介绍</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 中国二百年 cover RIGHT -->
+  <div class="bband rv-lay" id="book-2">
+    <div class="bcover">
+      <img src="Two_Centuries_of_China.webp" alt="《中国二百年》封面">
+      <div class="bcfade"></div>
+    </div>
+    <div class="binfo rv">
+      <div class="b-n">II</div>
+      <div class="b-tag">近现代史 · 制度演变</div>
+      <div class="b-title">中国二百年</div>
+      <div class="b-en">Two Centuries of China · 1793–1992</div>
+      <p class="b-desc">从1793年马戛尔尼访华到1992年邓小平南巡，剖析"破旧巨舰"如何在两百年惊涛骇浪中驶入现代航道。康熙的"千年预警"，为何提前八百年应验？</p>
+      <div class="b-hooks">
+        <div class="b-hook">从乾隆到邓小平，历史齿轮的完整因果链</div>
+        <div class="b-hook">工程师视角解构两百年制度演变</div>
+        <div class="b-hook">简体中文数字版 · 在线阅读</div>
+      </div>
+      <div class="b-price-row">
+        <div class="b-price">$5.9</div>
+        <div class="b-price-unit">单本 / 终身阅读权</div>
+      </div>
+      <div class="b-btns">
+        <a class="b-btn-buy" href="/china200/buy">立即购读</a>
+        <a class="b-btn-read" href="https://lishouzhong.zehao.cn/">详细介绍</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 渔舟唱晚 cover LEFT -->
+  <div class="bband" id="book-3">
+    <div class="bcover">
+      <img src="Colors_of_the_Twilight_.webp" alt="《渔舟唱晚》封面" style="object-position: center 20%;">
+      <div class="bcfade"></div>
+    </div>
+    <div class="binfo rv">
+      <div class="b-n">III</div>
+      <div class="b-tag">个人回忆录 · 家族史</div>
+      <div class="b-title">渔舟唱晚</div>
+      <div class="b-en">Colors of the Twilight · A Memoir</div>
+      <p class="b-desc">李守中先生亲笔回忆录。记录叔叔李有幹的牺牲，父亲李有行的教育理想，以及这个家族亲历的整个二十世纪。关于时代、坚韧与美的三重奏，也是《忆幹弟》的保存母本。</p>
+      <div class="b-hooks">
+        <div class="b-hook">横跨一个世纪的家族命运纪实</div>
+        <div class="b-hook">《忆幹弟》原文完整收录</div>
+        <div class="b-hook">简体中文数字版 · 在线阅读</div>
+      </div>
+      <div class="b-price-row">
+        <div class="b-price">$5.9</div>
+        <div class="b-price-unit">单本 / 终身阅读权</div>
+      </div>
+      <div class="b-btns">
+        <a class="b-btn-buy" href="/yuzhou/buy">立即购读</a>
+        <a class="b-btn-read" href="/yuzhou/">详细介绍</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="sec-eye rv" style="color:rgba(184,137,42,.7);">购书定价</div>
+    <div class="rv" style="font-size:clamp(20px,4vw,32px);font-weight:600;color:var(--parch);letter-spacing:.04em;margin-bottom:48px;">选择您的阅读方式</div>
+    <div class="pricing-cards">
+
+      <div class="pc rv">
+        <div class="pc-label">长城往事</div>
+        <div class="pc-title">《长城往事》</div>
+        <div class="pc-price">$5.9</div>
+        <div class="pc-price-note">单本 · 终身阅读权</div>
+        <div class="pc-features">
+          <div class="pc-feat">长城两千年 · 43个主题</div>
+          <div class="pc-feat">简体中文 · 在线阅读</div>
+          <div class="pc-feat">一人一账号 · 随时登录</div>
+          <div class="pc-feat">不可下载 · 防二次传播</div>
+        </div>
+        <a class="pc-btn" href="/changcheng/buy">立即购读</a>
+      </div>
+
+      <div class="pc rv">
+        <div class="pc-label">中国二百年</div>
+        <div class="pc-title">《中国二百年》</div>
+        <div class="pc-price">$5.9</div>
+        <div class="pc-price-note">单本 · 终身阅读权</div>
+        <div class="pc-features">
+          <div class="pc-feat">1793–1992 · 制度演变全景</div>
+          <div class="pc-feat">简体中文 · 在线阅读</div>
+          <div class="pc-feat">一人一账号 · 随时登录</div>
+          <div class="pc-feat">不可下载 · 防二次传播</div>
+        </div>
+        <a class="pc-btn" href="/china200/buy">立即购读</a>
+      </div>
+
+      <div class="pc rv">
+        <div class="pc-label">渔舟唱晚</div>
+        <div class="pc-title">《渔舟唱晚》</div>
+        <div class="pc-price">$5.9</div>
+        <div class="pc-price-note">单本 · 终身阅读权</div>
+        <div class="pc-features">
+          <div class="pc-feat">李守中先生亲笔回忆录</div>
+          <div class="pc-feat">简体中文 · 在线阅读</div>
+          <div class="pc-feat">一人一账号 · 随时登录</div>
+          <div class="pc-feat">不可下载 · 防二次传播</div>
+        </div>
+        <a class="pc-btn" href="/yuzhou/buy">立即购读</a>
+      </div>
+
+      <div class="pc featured rv" style="position:relative;">
+        <div class="pc-badge">推荐 · 全集套装</div>
+        <div class="pc-label" style="margin-top:10px;">三部著作</div>
+        <div class="pc-title">工程师史观<br>全集</div>
+        <div class="pc-price">$9.9</div>
+        <div class="pc-price-note">三本合集 · 终身阅读权</div>
+        <div class="pc-saving">较单购节省 $7.8</div>
+        <div class="pc-features">
+          <div class="pc-feat">《长城往事》全文</div>
+          <div class="pc-feat">《中国二百年》全文</div>
+          <div class="pc-feat">《渔舟唱晚》全文</div>
+          <div class="pc-feat">一账号解锁三本 · 终身有效</div>
+        </div>
+        <a class="pc-btn" href="/all/buy">立即购读全集</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- READING MODEL -->
+<section class="reading" id="reading">
+  <div class="reading-inner">
+    <div class="sec-eye rv">阅读说明</div>
+    <h2 class="rv">一人一号 · 安全在线阅读</h2>
+    <div class="reading-sub rv">购买即绑定您的专属阅读账号，无到期日</div>
+    <div class="rcards">
+      <div class="rcard rv">
+        <div class="rcard-icon">🔐</div>
+        <h3>邮箱登录 · 一键进入</h3>
+        <p>购书时填写邮箱，付款成功后我们自动发送一键登录链接。点击链接即可进入阅读，无需设置密码，无需下载任何应用。</p>
+      </div>
+      <div class="rcard rv">
+        <div class="rcard-icon">📖</div>
+        <h3>在线即读 · 无文件</h3>
+        <p>全部内容在加密的在线阅读界面呈现，不提供任何格式的文件下载，防止内容被无授权复制或二次传播。</p>
+      </div>
+      <div class="rcard rv">
+        <div class="rcard-icon">♾️</div>
+        <h3>买断 · 终身有效</h3>
+        <p>一次购买，终身有效，无订阅费，无到期日。完成购买后，随时登录账号即可阅读，任何设备的浏览器均可访问。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR MEMORIAL -->
+<section class="author-sec" id="author">
+  <div class="author-inner">
+    <div class="sec-eye rv">作者</div>
+    <div class="author-grid">
+      <div class="rv">
+        <div class="author-photo-w">
+          <img src="lishouzhong.webp" alt="李守中先生">
+          <div class="author-photo-caption">李守中 · 1933–2026</div>
+        </div>
+      </div>
+      <div>
+        <div class="author-name rv">李守中</div>
+        <div class="author-years rv">Li Shouzhong · 1933–2026</div>
+        <div class="author-body">
+          <p class="rv">李守中先生1933年生于上海，就读重庆大学采矿工程专业，此后长期从事工程设计工作，历任工程师、高级工程师，官至<strong>云南省煤炭厅总工程师</strong>任上退休。1980年代，由国家选送赴美，在<strong>宾州州立大学</strong>担任访问学者。2026年，先生辞世。</p>
+          <p class="rv">他不是科班出身的历史学者，却是最具历史洞察力的工程思维者之一。他用工程师处理复杂系统的方法——<strong>寻找因果、排除干扰、还原机制</strong>——来研读历史，在中国历史写作中开创了一种极为罕见的叙事视角。</p>
+          <div class="author-pull rv">
+            <p>"历史不是孤立的事件堆积，而是一个运转中的系统——有输入，有输出，有反馈，有故障。工程师能看见别人看不见的东西。"</p>
+          </div>
+          <p class="rv">他的父亲是著名<strong>绘画艺术家和教育家李有行</strong>，四川美术学院的创建者与首任院长；他的叔叔是<strong>抗日航空英烈李有幹</strong>，1937年在上海上空为国牺牲，年仅24岁。这个家族，不仅仅在书本中读历史，也在历史的洪流中书写。</p>
+          <div class="author-legacy rv">
+            <strong>三部著作，是先生在有生之年将一生思考系统化的结果。</strong>以数字文库形式永久留存，是家族对读者最郑重的承诺——让这些文字继续被阅读，继续被讨论。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOPHON -->
+<div class="colophon rv">
+  <h2>以阅读，致敬先生</h2>
+  <p>三部著作均为简体中文数字版，购买后可在线阅读，永久有效。实体书与繁体版已绝版。如需了解更多关于李守中先生与有行世家的故事，欢迎访问家族主站。</p>
+  <div class="colophon-btns">
+    <a class="col-btn" href="#pricing">查看购书定价</a>
+    <a class="col-btn" href="https://youxingshijia.com">有行世家</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-brand">李守中著作 · <span>有行世家数字文库</span></div>
+  <div class="ft-links">
+    <a href="https://youxingshijia.com">有行世家主站</a>
+    <a href="https://art.youxingshijia.com">有行艺术</a>
+    <a href="https://hero.youxingshijia.com">有幹英烈</a>
+    <a href="/privacy.html">隐私政策</a>
+    <a href="/terms.html">服务条款</a>
+    <a href="mailto:support@youxingshijia.com">联络我们</a>
+  </div>
+  <p class="ft-copy">© 2026 books.youxingshijia.com · 李守中著作数字文库 · 有行世家族世传承</p>
+</footer>
+
+<script>
+const rv = document.querySelectorAll('.rv');
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 85);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+rv.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
