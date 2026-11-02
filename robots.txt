@@ -1,0 +1,15 @@
+# books.youxingshijia.com · 李守中著作数字文库
+# robots.txt
+
+User-agent: *
+Allow: /
+Allow: /privacy.html
+Allow: /terms.html
+
+# Block reader pages (login-gated, no public content for crawlers)
+Disallow: /yuzhou/
+Disallow: /changcheng/
+Disallow: /china200/
+
+# Sitemap
+Sitemap: https://books.youxingshijia.com/sitemap.xml
