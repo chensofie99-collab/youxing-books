@@ -413,6 +413,15 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
 }
 .gdpr-btn:hover{background:#8b1a1a;}
 
+
+/* ── 币种切换 ── */
+.cur-toggle{display:inline-flex;align-self:center;margin:0 6px;border:1px solid var(--parch3);border-radius:2px;overflow:hidden}
+.cur-btn{background:none;border:none;cursor:pointer;font-family:'Noto Sans SC',sans-serif;font-size:11px;letter-spacing:.04em;padding:5px 9px;color:var(--ink3);transition:background .2s,color .2s;-webkit-tap-highlight-color:transparent}
+.cur-btn.on{background:var(--cr);color:#fdf9f2}
+.pricing .cur-toggle{border-color:rgba(253,249,242,.22)}
+.pricing .cur-btn{color:rgba(253,249,242,.55)}
+.pricing .cur-btn.on{background:var(--cr);color:#fdf9f2}
+@media(max-width:420px){.nl-k{display:none}.cur-toggle{margin:0 2px}.cur-btn{padding:5px 7px}}
 </style>
 </head>
 <body>
@@ -430,6 +439,7 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
     <a class="nl" href="/faq.html">常见问题</a>
     <a class="nl" href="https://youxingshijia.com">有行世家</a>
     <a class="nl" href="/yuzhou/" style="border:1px solid var(--parch3)">返回阅读</a>
+    <div class="cur-toggle" role="group" aria-label="币种 Currency"><button type="button" class="cur-btn" data-cur="CNY" onclick="setCurrency('CNY')">¥ CNY</button><button type="button" class="cur-btn on" data-cur="USD" onclick="setCurrency('USD')">$ USD</button></div>
     <a class="nl nl-cta" href="#pricing">立即购读</a>
   </div>
 </nav>
@@ -495,11 +505,11 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
         <div class="b-hook">简体中文数字版 · 在线阅读</div>
       </div>
       <div class="b-price-row">
-        <div class="b-price">$5.9</div>
+        <div class="b-price" data-price="single">$5.9</div>
         <div class="b-price-unit">单本 / 终身阅读权</div>
       </div>
       <div class="b-btns">
-        <a class="b-btn-buy" href="https://buy.stripe.com/3cIfZhepd4iU6apgJGdwc02">立即购读</a>
+        <a class="b-btn-buy" href="https://buy.stripe.com/cNi00j2GvbLm2Yd796dwc07" data-buy="changcheng">立即购读</a>
         <button class="b-btn-read" onclick="openModal('modal-changcheng')">试读节选</button>
       </div>
     </div>
@@ -523,11 +533,11 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
         <div class="b-hook">简体中文数字版 · 在线阅读</div>
       </div>
       <div class="b-price-row">
-        <div class="b-price">$5.9</div>
+        <div class="b-price" data-price="single">$5.9</div>
         <div class="b-price-unit">单本 / 终身阅读权</div>
       </div>
       <div class="b-btns">
-        <a class="b-btn-buy" href="https://buy.stripe.com/cNi00j2Gv02E9mBfFCdwc01">立即购读</a>
+        <a class="b-btn-buy" href="https://buy.stripe.com/9B614nbd12aM42h50Ydwc06" data-buy="china200">立即购读</a>
         <button class="b-btn-read" onclick="openModal('modal-china200')">试读节选</button>
       </div>
     </div>
@@ -551,11 +561,11 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
         <div class="b-hook">简体中文数字版 · 在线阅读</div>
       </div>
       <div class="b-price-row">
-        <div class="b-price">$5.9</div>
+        <div class="b-price" data-price="single">$5.9</div>
         <div class="b-price-unit">单本 / 终身阅读权</div>
       </div>
       <div class="b-btns">
-        <a class="b-btn-buy" href="https://buy.stripe.com/6oU6oH1Cr9De6apeBydwc03">立即购读</a>
+        <a class="b-btn-buy" href="https://buy.stripe.com/14A7sL1Cr4iU1U9ctqdwc08" data-buy="yuzhou">立即购读</a>
         <button class="b-btn-read" onclick="openModal('modal-yuzhou')">试读节选</button>
       </div>
     </div>
@@ -567,13 +577,14 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
 <section class="pricing" id="pricing">
   <div class="pricing-inner">
     <div class="sec-eye rv" style="color:rgba(184,137,42,.7);">购书定价</div>
-    <div class="rv" style="font-size:clamp(20px,4vw,32px);font-weight:600;color:var(--parch);letter-spacing:.04em;margin-bottom:48px;">选择您的阅读方式</div>
+    <div class="rv" style="font-size:clamp(20px,4vw,32px);font-weight:600;color:var(--parch);letter-spacing:.04em;margin-bottom:18px;">选择您的阅读方式</div>
+    <div class="rv" style="margin-bottom:34px"><div class="cur-toggle" role="group" aria-label="币种 Currency"><button type="button" class="cur-btn" data-cur="CNY" onclick="setCurrency('CNY')">¥ CNY</button><button type="button" class="cur-btn on" data-cur="USD" onclick="setCurrency('USD')">$ USD</button></div></div>
     <div class="pricing-cards">
 
       <div class="pc rv">
         <div class="pc-label">长城往事</div>
         <div class="pc-title">《长城往事》</div>
-        <div class="pc-price">$5.9</div>
+        <div class="pc-price" data-price="single">$5.9</div>
         <div class="pc-price-note">单本 · 终身阅读权</div>
         <div class="pc-features">
           <div class="pc-feat">长城两千年 · 43个主题</div>
@@ -581,13 +592,13 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
           <div class="pc-feat">一人一账号 · 随时登录</div>
           <div class="pc-feat">不可下载 · 防二次传播</div>
         </div>
-        <a class="pc-btn" href="https://buy.stripe.com/3cIfZhepd4iU6apgJGdwc02">立即购读</a>
+        <a class="pc-btn" href="https://buy.stripe.com/cNi00j2GvbLm2Yd796dwc07" data-buy="changcheng">立即购读</a>
       </div>
 
       <div class="pc rv">
         <div class="pc-label">中国二百年</div>
         <div class="pc-title">《中国二百年》</div>
-        <div class="pc-price">$5.9</div>
+        <div class="pc-price" data-price="single">$5.9</div>
         <div class="pc-price-note">单本 · 终身阅读权</div>
         <div class="pc-features">
           <div class="pc-feat">1793–1992 · 制度演变全景</div>
@@ -595,13 +606,13 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
           <div class="pc-feat">一人一账号 · 随时登录</div>
           <div class="pc-feat">不可下载 · 防二次传播</div>
         </div>
-        <a class="pc-btn" href="https://buy.stripe.com/cNi00j2Gv02E9mBfFCdwc01">立即购读</a>
+        <a class="pc-btn" href="https://buy.stripe.com/9B614nbd12aM42h50Ydwc06" data-buy="china200">立即购读</a>
       </div>
 
       <div class="pc rv">
         <div class="pc-label">渔舟唱晚</div>
         <div class="pc-title">《渔舟唱晚》</div>
-        <div class="pc-price">$5.9</div>
+        <div class="pc-price" data-price="single">$5.9</div>
         <div class="pc-price-note">单本 · 终身阅读权</div>
         <div class="pc-features">
           <div class="pc-feat">李守中先生亲笔回忆录</div>
@@ -609,23 +620,23 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
           <div class="pc-feat">一人一账号 · 随时登录</div>
           <div class="pc-feat">不可下载 · 防二次传播</div>
         </div>
-        <a class="pc-btn" href="https://buy.stripe.com/6oU6oH1Cr9De6apeBydwc03">立即购读</a>
+        <a class="pc-btn" href="https://buy.stripe.com/14A7sL1Cr4iU1U9ctqdwc08" data-buy="yuzhou">立即购读</a>
       </div>
 
       <div class="pc featured rv" style="position:relative;">
         <div class="pc-badge">推荐 · 全集套装</div>
         <div class="pc-label" style="margin-top:10px;">三部著作</div>
         <div class="pc-title">工程师史观<br>全集</div>
-        <div class="pc-price">$9.9</div>
+        <div class="pc-price" data-price="all">$9.9</div>
         <div class="pc-price-note">三本合集 · 终身阅读权</div>
-        <div class="pc-saving">较单购节省 $7.8</div>
+        <div class="pc-saving" data-saving>较单购节省 $7.8</div>
         <div class="pc-features">
           <div class="pc-feat">《长城往事》全文</div>
           <div class="pc-feat">《中国二百年》全文</div>
           <div class="pc-feat">《渔舟唱晚》全文</div>
           <div class="pc-feat">一账号解锁三本 · 终身有效</div>
         </div>
-        <a class="pc-btn" href="https://buy.stripe.com/cNi4gza8X9De6ap2SQdwc00">立即购读全集</a>
+        <a class="pc-btn" href="https://buy.stripe.com/14AbJ180PaHicyN2SQdwc05" data-buy="all">立即购读全集</a>
       </div>
 
     </div>
@@ -769,8 +780,8 @@ rv.forEach(el => io.observe(el));
       <div class="excerpt-fade">…… 购读后解锁全书43章</div>
     </div>
     <div class="modal-footer">
-      <div><span class="modal-price-num">$5.9</span><span class="modal-price-note">单本 · 终身阅读权</span></div>
-      <a class="modal-buy-btn" href="https://buy.stripe.com/3cIfZhepd4iU6apgJGdwc02">立即购读</a>
+      <div><span class="modal-price-num" data-price="single">$5.9</span><span class="modal-price-note">单本 · 终身阅读权</span></div>
+      <a class="modal-buy-btn" href="https://buy.stripe.com/cNi00j2GvbLm2Yd796dwc07" data-buy="changcheng">立即购读</a>
     </div>
   </div>
 </div>
@@ -813,8 +824,8 @@ rv.forEach(el => io.observe(el));
       <div class="excerpt-fade">…… 购读后解锁全书41章</div>
     </div>
     <div class="modal-footer">
-      <div><span class="modal-price-num">$5.9</span><span class="modal-price-note">单本 · 终身阅读权</span></div>
-      <a class="modal-buy-btn" href="/https://buy.stripe.com/cNi00j2Gv02E9mBfFCdwc01">立即购读</a>
+      <div><span class="modal-price-num" data-price="single">$5.9</span><span class="modal-price-note">单本 · 终身阅读权</span></div>
+      <a class="modal-buy-btn" href="https://buy.stripe.com/9B614nbd12aM42h50Ydwc06" data-buy="china200">立即购读</a>
     </div>
   </div>
 </div>
@@ -862,8 +873,8 @@ rv.forEach(el => io.observe(el));
       <div class="excerpt-fade">…… 购读后解锁全书十六章</div>
     </div>
     <div class="modal-footer">
-      <div><span class="modal-price-num">$5.9</span><span class="modal-price-note">单本 · 终身阅读权</span></div>
-      <a class="modal-buy-btn" href="https://buy.stripe.com/6oU6oH1Cr9De6apeBydwc03">立即购读</a>
+      <div><span class="modal-price-num" data-price="single">$5.9</span><span class="modal-price-note">单本 · 终身阅读权</span></div>
+      <a class="modal-buy-btn" href="https://buy.stripe.com/14A7sL1Cr4iU1U9ctqdwc08" data-buy="yuzhou">立即购读</a>
     </div>
   </div>
 </div>
@@ -914,6 +925,81 @@ function acceptGDPR(){
   var el=document.getElementById('gdpr');
   if(el){ el.classList.add('hide'); setTimeout(()=>el.style.display='none',400); }
 }
+</script>
+
+<script>
+// ── 币种 / 价格 / 支付链接 ─────────────────────────────────
+(function(){
+  /* ★ 人民币 Stripe 付款链接：在 Stripe 建好后填入。四个全部填好，人民币才会启用。*/
+  var LINKS = {
+    USD: {
+      changcheng: 'https://buy.stripe.com/cNi00j2GvbLm2Yd796dwc07',
+      china200:   'https://buy.stripe.com/9B614nbd12aM42h50Ydwc06',
+      yuzhou:     'https://buy.stripe.com/14A7sL1Cr4iU1U9ctqdwc08',
+      all:        'https://buy.stripe.com/14AbJ180PaHicyN2SQdwc05'
+    },
+    CNY: { changcheng:'https://buy.stripe.com/3cIbJ1gxl5mY6ap1OMdwc0d', 
+           china200:'https://buy.stripe.com/00wbJ1a8X9De42h3WUdwc0c', 
+           yuzhou:'https://buy.stripe.com/7sY28r6WL6r242h8dadwc0e',            all:'https://buy.stripe.com/dRm00j1CraHibuJ3WUdwc0b' }
+  };
+  var PRICES = {
+    CNY: { sym:'\u00a5', single:'39', all:'69',  saving:'48'  },
+    USD: { sym:'$',      single:'5.9', all:'9.9', saving:'7.8' }
+  };
+  var KEY = 'cur_pref';
+  var cnyReady = ['changcheng','china200','yuzhou','all'].every(function(k){
+    return /^https:\/\/buy\.stripe\.com\//.test(LINKS.CNY[k]);
+  });
+
+  function $all(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function apply(cur){
+    var p = PRICES[cur];
+    $all('[data-price]').forEach(function(el){ el.textContent = p.sym + p[el.getAttribute('data-price')]; });
+    $all('[data-saving]').forEach(function(el){ el.textContent = '\u8f83\u5355\u8d2d\u8282\u7701 ' + p.sym + p.saving; });
+    $all('[data-buy]').forEach(function(a){ a.href = LINKS[cur][a.getAttribute('data-buy')]; });
+    $all('.cur-btn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-cur') === cur); });
+    document.documentElement.setAttribute('data-cur', cur);
+  }
+  function stored(){
+    try{ var v = localStorage.getItem(KEY); return (v==='CNY'||v==='USD') ? v : null; }catch(e){ return null; }
+  }
+  // 兜底：浏览器时区在中国大陆（只看时区，不看语言，避免把海外华人误判成大陆）
+  function tzIsMainland(){
+    try{
+      var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      return /^Asia\/(Shanghai|Chongqing|Harbin|Urumqi|Kashgar)$/.test(tz);
+    }catch(e){ return false; }
+  }
+  // 精确：Cloudflare 的 /cdn-cgi/trace 返回访客 IP 所属国家（域名经过 Cloudflare 代理时可用）
+  function countryFromTrace(){
+    if(typeof fetch !== 'function') return Promise.resolve('');
+    var ctrl = (typeof AbortController === 'function') ? new AbortController() : null;
+    var timer = setTimeout(function(){ if(ctrl) ctrl.abort(); }, 1500);
+    return fetch('/cdn-cgi/trace', { cache:'no-store', signal: ctrl ? ctrl.signal : undefined })
+      .then(function(r){ return r.ok ? r.text() : ''; })
+      .then(function(t){ var m = /^loc=([A-Z]{2})$/m.exec(t || ''); return (m && m[1] !== 'XX' && m[1] !== 'T1') ? m[1] : ''; })
+      .catch(function(){ return ''; })
+      .then(function(c){ clearTimeout(timer); return c; });
+  }
+
+  window.setCurrency = function(cur){
+    if(cur === 'CNY' && !cnyReady) return;
+    try{ localStorage.setItem(KEY, cur); }catch(e){}
+    apply(cur);
+  };
+
+  if(!cnyReady){                       // 人民币链接未配置：只用美元，隐藏切换按钮
+    $all('.cur-toggle').forEach(function(e){ e.style.display = 'none'; });
+    apply('USD'); return;
+  }
+  var pref = stored();
+  if(pref){ apply(pref); return; }     // 用户手动选过：以用户选择为准
+  apply(tzIsMainland() ? 'CNY' : 'USD');          // 先按时区快速给出默认值，避免价格闪烁
+  countryFromTrace().then(function(cc){           // 再用 IP 国家校正
+    if(!cc || stored()) return;
+    apply(cc === 'CN' ? 'CNY' : 'USD');
+  });
+})();
 </script>
 </body>
 </html>

@@ -65,6 +65,7 @@ footer{background:var(--dark);padding:22px 5vw;display:flex;justify-content:spac
       <li><strong>电子邮件地址：</strong>用于识别您的账号、发送购书确认邮件及一键登录链接。</li>
       <li><strong>支付资料：</strong>由 Stripe 处理，我们不储存您的信用卡、借记卡或支付宝/微信支付的完整账号资料。</li>
       <li><strong>购书记录：</strong>记录您购买的书目及时间，用于验证阅读权限。</li>
+      <li><strong>大致所在国家：</strong>访问时根据网络请求判断您所在的国家/地区，仅用于默认显示人民币或美元价格，我们不记录、不存储您的 IP 地址。</li>
       <li><strong>阅读进度：</strong>储存在您本地设备的浏览器中（localStorage），我们的服务器不记录您阅读的具体章节或进度。</li>
     </ul>
 
@@ -85,7 +86,7 @@ footer{background:var(--dark);padding:22px 5vw;display:flex;justify-content:spac
     </ul>
 
     <h2>四、Cookie 及本地储存</h2>
-    <p>本网站使用浏览器 localStorage 储存您的登录状态和阅读进度，无需您同意亦可正常使用。我们不使用第三方追踪 Cookie，不进行跨网站行为追踪。</p>
+    <p>本网站使用浏览器 localStorage 储存您的登录状态、阅读进度和币种偏好，无需您同意亦可正常使用。我们不使用第三方追踪 Cookie，不进行跨网站行为追踪。</p>
 
     <h2>五、资料安全</h2>
     <p>书籍内容储存于受行级安全策略保护的数据库中，仅已验证购书权限的账号可访问。我们采用 HTTPS 加密所有数据传输，并使用一次性魔法链接（Magic Link）进行身份验证，无需设置密码。</p>
@@ -122,6 +123,7 @@ footer{background:var(--dark);padding:22px 5vw;display:flex;justify-content:spac
       <li><strong>Email address:</strong> Used to identify your account, send purchase confirmation emails, and deliver magic login links.</li>
       <li><strong>Payment information:</strong> Processed by Stripe. We do not store your full card number, bank account, or Alipay/WeChat Pay credentials.</li>
       <li><strong>Purchase records:</strong> Which book(s) you purchased and when, used to verify reading access.</li>
+      <li><strong>Approximate country:</strong> Determined at page load only to pick a default display currency (CNY or USD). We do not log or store your IP address.</li>
       <li><strong>Reading progress:</strong> Stored locally in your browser (localStorage). Our servers do not log which chapters you read or your reading speed.</li>
     </ul>
 
@@ -141,7 +143,7 @@ footer{background:var(--dark);padding:22px 5vw;display:flex;justify-content:spac
     </ul>
 
     <h2>4. Cookies and Local Storage</h2>
-    <p>We use browser localStorage to store your login state and reading progress. We do not use third-party tracking cookies or cross-site behavioral tracking.</p>
+    <p>We use browser localStorage to store your login state, reading progress and currency preference. We do not use third-party tracking cookies or cross-site behavioral tracking.</p>
 
     <h2>5. Data Security</h2>
     <p>Book content is stored in a database protected by row-level security policies, accessible only to accounts with verified purchase records. All data transmission is encrypted via HTTPS. Authentication uses one-time magic links — no passwords required.</p>
