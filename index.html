@@ -47,7 +47,7 @@
         "deathDate": "2026",
         "birthPlace": "上海",
         "description": "中国历史学者、高级工程师，宾州州立大学访问学者，著有《长城往事》《中国二百年》《渔舟唱晚》三部著作。",
-        "url": "https://books.youxingshijia.com/",
+        "url": "https://books.youxingshijia.com/author.html",
         "image": "https://books.youxingshijia.com/lishouzhong.webp"
       },
       {
@@ -421,7 +421,45 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
 .pricing .cur-toggle{border-color:rgba(253,249,242,.22)}
 .pricing .cur-btn{color:rgba(253,249,242,.55)}
 .pricing .cur-btn.on{background:var(--cr);color:#fdf9f2}
-@media(max-width:420px){.nl-k{display:none}.cur-toggle{margin:0 2px}.cur-btn{padding:5px 7px}}
+@media(max-width:520px){.nl-k{display:none}.nav-brand-s{display:none}.cur-toggle{margin:0 2px}.cur-btn{padding:5px 6px;font-size:10.5px}.nl-cta{padding:5px 9px}}
+.nav-links{align-items:center}
+.nl{white-space:nowrap}
+/* 中等宽度：按优先级依次收起次要链接（它们在页脚里仍可访问） */
+@media(max-width:1000px){.nav-links .nl[href="https://youxingshijia.com"]{display:none}}
+@media(max-width:900px){.nav-links .nl[href="/faq.html"]{display:none}}
+@media(max-width:760px){.nav-links .nl[href="#pricing"]:not(.nl-cta){display:none}}
+@media(max-width:700px){.nav-links .nl-k{display:none}}
+.nav-brand-m,.cur-btn,.nl-cta,.nav-read-btn{white-space:nowrap}
+@media(max-width:360px){
+  .nav-brand-m{font-size:13px;letter-spacing:.03em}
+  nav .cur-code{display:none}                 /* 窄屏导航里币种只显示 ¥ / $ */
+  nav .cur-btn{padding:5px 7px;font-size:11px}
+  .nav-read-btn{padding:5px 7px}
+  .nl-cta{padding:5px 8px}
+}
+/* ── 返回阅读：下拉菜单 ── */
+.nav-read{position:relative;display:inline-flex;align-items:center}
+.nav-read-btn{font-family:'Noto Sans SC',sans-serif;font-size:12px;line-height:1.5;color:var(--ink3);background:none;border:1px solid var(--parch3);border-radius:2px;padding:5px 11px;letter-spacing:.04em;cursor:pointer;transition:color .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+.nav-read-btn:hover,.nav-read-btn[aria-expanded="true"]{color:var(--cr);border-color:var(--cr)}
+.rb-short{display:none}
+.rb-caret{display:inline-block;font-size:10px;transition:transform .2s}
+.nav-read-btn[aria-expanded="true"] .rb-caret{transform:rotate(180deg)}
+.read-menu{display:none;position:absolute;top:calc(100% + 10px);right:0;min-width:214px;background:var(--parch);border:1px solid var(--parch3);border-radius:3px;box-shadow:0 10px 30px rgba(26,18,8,.16);padding:6px 0;z-index:300}
+.read-menu.open{display:block}
+.read-menu-head{padding:8px 16px 6px;font-family:'Noto Sans SC',sans-serif;font-size:10px;letter-spacing:.16em;color:var(--gold3)}
+.read-menu a{display:flex;align-items:baseline;gap:10px;padding:12px 16px;text-decoration:none;font-size:14px;color:var(--ink2);letter-spacing:.04em;-webkit-tap-highlight-color:transparent}
+.read-menu a:hover,.read-menu a:focus-visible{background:var(--parch2);color:var(--cr);outline:none}
+.rm-n{font-family:'EB Garamond',serif;font-size:13px;color:var(--gold);min-width:22px}
+.read-menu-foot{padding:7px 16px 8px;margin-top:4px;border-top:1px solid var(--parch3);font-family:'Noto Sans SC',sans-serif;font-size:10.5px;color:var(--ink3)}
+@media(max-width:640px){
+  .rb-long{display:none}.rb-short{display:inline}.nav-read-btn{padding:5px 8px}
+  .nav-read{position:static}                      /* 手机上菜单相对整条导航定位，避免超出屏幕 */
+  .read-menu{top:calc(100% + 6px);left:5vw;right:5vw;min-width:0}
+}
+
+/* ── 作者区：进入作者页 ── */
+.author-more{display:inline-block;margin-top:6px;padding:10px 22px;border:1px solid var(--cr);color:var(--cr);text-decoration:none;border-radius:2px;font-family:'Noto Sans SC',sans-serif;font-size:12px;letter-spacing:.1em;transition:background .2s,color .2s}
+.author-more:hover{background:var(--cr);color:#fdf9f2}
 </style>
 </head>
 <body>
@@ -438,8 +476,17 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
     <a class="nl" href="/author.html">作者简介</a>
     <a class="nl" href="/faq.html">常见问题</a>
     <a class="nl" href="https://youxingshijia.com">有行世家</a>
-    <a class="nl" href="/yuzhou/" style="border:1px solid var(--parch3)">返回阅读</a>
-    <div class="cur-toggle" role="group" aria-label="币种 Currency"><button type="button" class="cur-btn" data-cur="CNY" onclick="setCurrency('CNY')">¥ CNY</button><button type="button" class="cur-btn on" data-cur="USD" onclick="setCurrency('USD')">$ USD</button></div>
+    <div class="nav-read" id="nav-read">
+      <button type="button" class="nav-read-btn" id="nav-read-btn" aria-haspopup="true" aria-expanded="false" aria-controls="read-menu"><span class="rb-long">返回阅读</span><span class="rb-short">阅读</span> <span class="rb-caret" aria-hidden="true">▾</span></button>
+      <div class="read-menu" id="read-menu" role="menu" aria-label="选择要阅读的书">
+        <div class="read-menu-head">已购读者 · 选择要阅读的书</div>
+        <a role="menuitem" href="/changcheng/"><span class="rm-n">I</span>长城往事</a>
+        <a role="menuitem" href="/china200/"><span class="rm-n">II</span>中国二百年</a>
+        <a role="menuitem" href="/yuzhou/"><span class="rm-n">III</span>渔舟唱晚</a>
+        <div class="read-menu-foot">使用购书时的邮箱登录即可</div>
+      </div>
+    </div>
+    <div class="cur-toggle" role="group" aria-label="币种 Currency"><button type="button" class="cur-btn" data-cur="CNY" onclick="setCurrency('CNY')">¥<span class="cur-code"> CNY</span></button><button type="button" class="cur-btn on" data-cur="USD" onclick="setCurrency('USD')">$<span class="cur-code"> USD</span></button></div>
     <a class="nl nl-cta" href="#pricing">立即购读</a>
   </div>
 </nav>
@@ -465,7 +512,7 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
     </div>
     <div class="hero-btns">
       <a class="btn-p" href="#pricing">购读三部著作</a>
-      <a class="btn-g" href="#author">了解作者</a>
+      <a class="btn-g" href="/author.html">了解作者</a>
     </div>
   </div>
 </section>
@@ -578,7 +625,7 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
   <div class="pricing-inner">
     <div class="sec-eye rv" style="color:rgba(184,137,42,.7);">购书定价</div>
     <div class="rv" style="font-size:clamp(20px,4vw,32px);font-weight:600;color:var(--parch);letter-spacing:.04em;margin-bottom:18px;">选择您的阅读方式</div>
-    <div class="rv" style="margin-bottom:34px"><div class="cur-toggle" role="group" aria-label="币种 Currency"><button type="button" class="cur-btn" data-cur="CNY" onclick="setCurrency('CNY')">¥ CNY</button><button type="button" class="cur-btn on" data-cur="USD" onclick="setCurrency('USD')">$ USD</button></div></div>
+    <div class="rv" style="margin-bottom:34px"><div class="cur-toggle" role="group" aria-label="币种 Currency"><button type="button" class="cur-btn" data-cur="CNY" onclick="setCurrency('CNY')">¥<span class="cur-code"> CNY</span></button><button type="button" class="cur-btn on" data-cur="USD" onclick="setCurrency('USD')">$<span class="cur-code"> USD</span></button></div></div>
     <div class="pricing-cards">
 
       <div class="pc rv">
@@ -676,23 +723,24 @@ footer { background: var(--dark); padding: 30px 5vw; display: flex; justify-cont
     <div class="author-grid">
       <div class="rv">
         <div class="author-photo-w">
-          <img src="lishouzhong.webp" alt="李守中先生">
-          <div class="author-photo-caption">李守中 · 1933–2026</div>
+          <a href="/author.html" style="display:block;text-decoration:none" aria-label="查看李守中完整简介">
+            <img src="lishouzhong.webp" alt="李守中先生" loading="lazy">
+            <div class="author-photo-caption">李守中 · 1933–2026</div>
+          </a>
         </div>
       </div>
       <div>
         <div class="author-name rv">李守中</div>
         <div class="author-years rv">Li Shouzhong · 1933–2026</div>
         <div class="author-body">
-          <p class="rv">李守中先生1933年生于上海，就读重庆大学采矿工程专业，此后长期从事工程设计工作，历任工程师、高级工程师，官至<strong>云南省煤炭厅总工程师</strong>任上退休。1980年代，由国家选送赴美，在<strong>宾州州立大学</strong>担任访问学者。2026年，先生辞世。</p>
-          <p class="rv">他不是科班出身的历史学者，却是最具历史洞察力的工程思维者之一。他用工程师处理复杂系统的方法——<strong>寻找因果、排除干扰、还原机制</strong>——来研读历史，在中国历史写作中开创了一种极为罕见的叙事视角。</p>
+          <p class="rv">李守中先生1933年生于上海。1954年毕业于重庆大学采矿工程专业。此后长期从事煤矿工程设计工作，历任工程师、高级工程师。1980年公费赴美，作为访问学者在<strong>美国宾夕法尼亚州州立大学</strong>学习研究两年。1993年从云南省煤炭厅总工程师任上退休。退休后，专心研读历史文献并著有三部著作。2026年，先生辞世。</p>
+          <p class="rv">他不是科班出身的历史学者，却是最具历史洞察力的工程思维者之一。他用工程师处理复杂系统的方法——<strong>寻找因果、排除干扰、探索真相</strong>——来研读历史，在中国历史写作中开创了一种极为罕见的叙事视角。</p>
           <div class="author-pull rv">
             <p>"历史不是孤立的事件堆积，而是一个运转中的系统——有输入，有输出，有反馈，有故障。工程师能看见别人看不见的东西。"</p>
           </div>
-          <p class="rv">他的父亲是著名<strong>绘画艺术家和教育家李有行</strong>，四川美术学院的创建者与首任院长；他的叔叔是<strong>抗日航空英烈李有幹</strong>，1937年在上海上空为国牺牲，年仅24岁。这个家族，不仅仅在书本中读历史，也在历史的洪流中书写。</p>
-          <div class="author-legacy rv">
-            <strong>三部著作，是先生在有生之年将一生思考系统化的结果。</strong>以数字文库形式永久留存，是家族对读者最郑重的承诺——让这些文字继续被阅读，继续被讨论。
-          </div>
+          <p class="rv">他的父亲是著名<strong>绘画艺术家和教育家李有行</strong>，四川美术学院的创建者与首任院长；他的叔叔是<strong>抗日航空英烈李有幹</strong>，1937年在上海上空为国牺牲，年仅24岁。</p>
+          <a class="author-more rv" href="/author.html">查看完整简介与人生年表 →</a>
+
         </div>
       </div>
     </div>
@@ -746,7 +794,7 @@ rv.forEach(el => io.observe(el));
         <div class="modal-book-title">长城往事</div>
         <div class="modal-book-sub">李守中 著 · 柏杨推荐 · 全43章 · 简体中文</div>
       </div>
-      <button class="modal-close" onclick="document.getElementById('modal-changcheng').classList.remove('open')">
+      <button class="modal-close" onclick="closeModal2('modal-changcheng')">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -794,7 +842,7 @@ rv.forEach(el => io.observe(el));
         <div class="modal-book-title">中国二百年</div>
         <div class="modal-book-sub">李守中 著 · 1793–1992 · 全41章 · 简体中文</div>
       </div>
-      <button class="modal-close" onclick="document.getElementById('modal-china200').classList.remove('open')">
+      <button class="modal-close" onclick="closeModal2('modal-china200')">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -838,7 +886,7 @@ rv.forEach(el => io.observe(el));
         <div class="modal-book-title">渔舟唱晚</div>
         <div class="modal-book-sub">李守中 著 · 回忆录 · 全16章 · 简体中文</div>
       </div>
-      <button class="modal-close" onclick="document.getElementById('modal-yuzhou').classList.remove('open')">
+      <button class="modal-close" onclick="closeModal2('modal-yuzhou')">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -880,24 +928,29 @@ rv.forEach(el => io.observe(el));
 </div>
 
 <script>
+// ── 试读弹窗：滚动锁统一管理 ─────────────────────────────
+// 只要页面上没有打开的弹窗，就一定解除锁定；无论用 ×、点遮罩、Esc 还是浏览器返回，都不会再卡住滚动
+function syncScrollLock(){
+  document.body.style.overflow = document.querySelector('.modal-overlay.open') ? 'hidden' : '';
+}
 function openModal(id){
   document.getElementById(id).classList.add('open');
-  document.body.style.overflow='hidden';
+  syncScrollLock();
+}
+function closeModal2(id){
+  document.getElementById(id).classList.remove('open');
+  syncScrollLock();
 }
 function closeModal(e,id){
-  if(e.target===e.currentTarget){
-    document.getElementById(id).classList.remove('open');
-    document.body.style.overflow='';
-  }
+  if(e.target===e.currentTarget) closeModal2(id);
 }
-document.addEventListener('keydown',e=>{
+document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){
-    document.querySelectorAll('.modal-overlay.open').forEach(m=>{
-      m.classList.remove('open');
-    });
-    document.body.style.overflow='';
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){ m.classList.remove('open'); });
+    syncScrollLock();
   }
 });
+window.addEventListener('pageshow',syncScrollLock);   // 从 Stripe 付款页点“返回”时也恢复正常
 </script>
 
 
@@ -938,9 +991,7 @@ function acceptGDPR(){
       yuzhou:     'https://buy.stripe.com/14A7sL1Cr4iU1U9ctqdwc08',
       all:        'https://buy.stripe.com/14AbJ180PaHicyN2SQdwc05'
     },
-    CNY: { changcheng:'https://buy.stripe.com/3cIbJ1gxl5mY6ap1OMdwc0d', 
-           china200:'https://buy.stripe.com/00wbJ1a8X9De42h3WUdwc0c', 
-           yuzhou:'https://buy.stripe.com/7sY28r6WL6r242h8dadwc0e',            all:'https://buy.stripe.com/dRm00j1CraHibuJ3WUdwc0b' }
+    CNY: { changcheng:'https://buy.stripe.com/3cIbJ1gxl5mY6ap1OMdwc0d',            china200:'https://buy.stripe.com/00wbJ1a8X9De42h3WUdwc0c',            yuzhou:'https://buy.stripe.com/7sY28r6WL6r242h8dadwc0e',            all:'https://buy.stripe.com/dRm00j1CraHibuJ3WUdwc0b' }
   };
   var PRICES = {
     CNY: { sym:'\u00a5', single:'39', all:'69',  saving:'48'  },
@@ -999,6 +1050,18 @@ function acceptGDPR(){
     if(!cc || stored()) return;
     apply(cc === 'CN' ? 'CNY' : 'USD');
   });
+})();
+</script>
+<script>
+// ── 返回阅读：下拉菜单 ──
+(function(){
+  var wrap=document.getElementById('nav-read'),btn=document.getElementById('nav-read-btn'),menu=document.getElementById('read-menu');
+  if(!wrap||!btn||!menu) return;
+  function set(open){ menu.classList.toggle('open',open); btn.setAttribute('aria-expanded',open?'true':'false'); }
+  btn.addEventListener('click',function(){ set(!menu.classList.contains('open')); });
+  document.addEventListener('click',function(e){ if(!wrap.contains(e.target)) set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&menu.classList.contains('open')){ set(false); btn.focus(); } });
+  window.addEventListener('pageshow',function(){ set(false); });
 })();
 </script>
 </body>
