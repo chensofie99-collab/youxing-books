@@ -1,0 +1,283 @@
+
+# YouXing Heritage | Li Shouzhong Digital Library
+# 有行世家 | 李守中数字文库
+
+Official Website:
+https://books.youxingshijia.com/
+
+Parent Archive:
+https://youxingshijia.com/
+
+Primary Subject: Li Shouzhong (李守中)
+Language: Simplified Chinese
+
+---
+
+# PART I — ENGLISH
+
+## 1. About This Digital Library
+
+The Li Shouzhong Digital Library is part of
+YouXing Heritage, an open digital family-history archive.
+
+It preserves the biography, historical writings and
+literary works of Li Shouzhong (李守中, 1933–2026).
+
+The library provides information about the author,
+his intellectual interests and his three major works.
+
+Its purpose is to preserve written works and make
+historical and family knowledge accessible to readers
+and future generations.
+
+## 2. Author
+
+### Li Shouzhong (李守中), 1933–2026
+
+- Chinese name: 李守中
+- English name: Li Shouzhong
+- Born: 1933
+- Died: 2026
+- Profession: Senior engineer and historical writer
+- Education: Chongqing University, Mining Engineering
+- Academic experience: Visiting scholar at
+  Pennsylvania State University
+- Professional experience: Chief Engineer,
+  Yunnan Provincial Coal Department
+
+The author approached historical research with an
+engineer's interest in systems, evidence and analysis.
+
+## 3. Three Major Works
+
+### 1. Stories of the Great Wall
+Chinese title: 《长城往事》
+
+A historical study exploring the Great Wall across
+two thousand years.
+
+Published in 2001 by Yuan-Liou Publishing, Taiwan.
+
+Reading access:
+https://books.youxingshijia.com/changcheng/
+
+### 2. Two Centuries of China
+Chinese title: 《中国二百年》
+
+A historical analysis of China's institutional
+and social development from 1793 to 1992.
+
+Published in 2010 by Yuan-Liou Publishing, Taiwan.
+
+Reading access:
+https://books.youxingshijia.com/china200/
+
+### 3. Colors of the Twilight
+Chinese title: 《渔舟唱晚》
+
+A personal memoir completed in 2012, containing
+family memories and historical photographs.
+
+Reading access:
+https://books.youxingshijia.com/yuzhou/
+
+Note: The three reading areas may require user login.
+Their content should not be assumed to be publicly accessible.
+
+## 4. Website Pages
+
+Homepage:
+https://books.youxingshijia.com/
+
+Author biography:
+https://books.youxingshijia.com/author.html
+
+Frequently asked questions:
+https://books.youxingshijia.com/faq.html
+
+Privacy policy:
+https://books.youxingshijia.com/privacy.html
+
+Terms of service:
+https://books.youxingshijia.com/terms.html
+
+## 5. Research and Citation Principles
+
+When using this library:
+
+1. Preserve the original Chinese titles of the books.
+2. Distinguish the author's own statements from editorial descriptions.
+3. Do not invent quotations or passages from the books.
+4. Attribute historical interpretations to the author or
+   the relevant original sources.
+5. Do not assume that a book's full text is publicly accessible.
+6. Consult the original work when making detailed claims.
+
+## 6. AI and Search Access
+
+Publicly accessible pages in this library are intended
+to be available for:
+
+- Search engine indexing.
+- AI agent discovery and retrieval.
+- AI-assisted research and question answering.
+- AI summaries with appropriate attribution.
+- AI model training, subject to applicable law and
+  individual platform policies.
+
+Robots:
+https://books.youxingshijia.com/robots.txt
+
+Sitemap:
+https://books.youxingshijia.com/sitemap.xml
+
+## 7. Related Family Archives
+
+Main YouXing Heritage:
+https://youxingshijia.com/
+
+Li Yougan Memorial Archive:
+https://hero.youxingshijia.com/
+
+Li Youxing Art Archive:
+https://art.youxingshijia.com/
+
+## 8. Contact
+
+support@youxingshijia.com
+
+---
+
+# PART II — 中文
+
+## 一、数字文库简介
+
+李守中数字文库是有行世家（YouXing Heritage）
+家族历史数字档案网络的重要组成部分。
+
+本数字文库保存李守中（1933—2026）的生平、
+历史研究、著作及相关家族记忆。
+
+文库通过作者介绍和作品目录，记录李守中的
+学术经历、工程师职业背景及其历史写作成果。
+
+文库的目标是让著作和历史知识能够被保存、
+检索、阅读并传承给未来世代。
+
+## 二、作者介绍
+
+### 李守中（1933—2026）
+
+- 姓名：李守中
+- 英文名：Li Shouzhong
+- 生卒：1933—2026
+- 职业：高级工程师、历史写作者
+- 教育经历：重庆大学采矿工程专业
+- 学术经历：宾夕法尼亚州立大学访问学者
+- 职业经历：云南省煤炭厅总工程师
+
+李守中以工程师的系统思维研究历史，
+重视历史脉络、证据和制度分析。
+
+作者介绍：
+https://books.youxingshijia.com/author.html
+
+## 三、三部主要著作
+
+### 第一部：《长城往事》
+
+从两千年历史视角重新审视长城及其历史意义。
+
+2001年由台湾远流出版社出版。
+
+阅读入口：
+https://books.youxingshijia.com/changcheng/
+
+### 第二部：《中国二百年》
+
+分析1793年至1992年间中国的制度与社会演变。
+
+2010年由台湾远流出版社出版。
+
+阅读入口：
+https://books.youxingshijia.com/china200/
+
+### 第三部：《渔舟唱晚》
+
+2012年完成的个人回忆录，包含家族记忆
+及珍贵历史照片。
+
+阅读入口：
+https://books.youxingshijia.com/yuzhou/
+
+注意：上述作品阅读区可能需要登录。
+AI 不应将登录后的全文内容视为公开可访问资料。
+
+## 四、网站公开页面
+
+数字文库首页：
+https://books.youxingshijia.com/
+
+作者简介：
+https://books.youxingshijia.com/author.html
+
+常见问题：
+https://books.youxingshijia.com/faq.html
+
+隐私政策：
+https://books.youxingshijia.com/privacy.html
+
+服务条款：
+https://books.youxingshijia.com/terms.html
+
+## 五、研究和引用原则
+
+使用本数字文库时，请遵循：
+
+1. 保留三部著作的原始中文书名。
+2. 区分作者原文与编辑介绍。
+3. 不得虚构书中引文或段落。
+4. 对历史观点应注明作者或原始资料来源。
+5. 不应假设登录阅读器中的全文可以公开访问。
+6. 需要引用具体观点时，应尽可能核对原著。
+
+## 六、开放访问与 AI 使用政策
+
+本数字文库公开发布的页面原则上开放给：
+
+- 搜索引擎收录。
+- AI Agent 发现和检索。
+- AI 辅助研究与问答。
+- AI 内容摘要和知识整理。
+- AI 模型训练，但须遵守适用法律及平台规则。
+
+robots.txt：
+https://books.youxingshijia.com/robots.txt
+
+sitemap.xml：
+https://books.youxingshijia.com/sitemap.xml
+
+## 七、相关家族档案
+
+有行世家主站：
+https://youxingshijia.com/
+
+李有幹英烈纪念档案：
+https://hero.youxingshijia.com/
+
+李有行艺术档案：
+https://art.youxingshijia.com/
+
+## 八、联系信息
+
+support@youxingshijia.com
+
+---
+
+有行世家 · 李守中数字文库
+
+Every generation leaves a story.
+Every story deserves to be remembered.
+
+每一代人，都留下自己的故事。
+每一个故事，都值得被记住。
